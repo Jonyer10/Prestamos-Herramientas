@@ -1,65 +1,72 @@
+/* Estilos generales para el body */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  color: #333;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  margin: 0; /* Quitamos márgenes por defecto */
+  font-family: Arial, sans-serif; /* Fuente principal */
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb); /* Fondo con gradiente suave */
+  color: #333; /* Color de texto base */
+  height: 100vh; /* Altura completa de la ventana */
+  display: flex; /* Usamos flexbox para organizar */
+  flex-direction: column; /* Los hijos se apilan en columna */
 }
 
+/* Contenedor principal de la aplicación */
 .app-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  flex: 1; /* Ocupa todo el espacio disponible */
+  display: flex; /* Flexbox para organizar */
+  flex-direction: column; /* Apila header y main en columna */
 }
 
-/* Barra superior compacta */
+/* Barra superior compacta (header) */
 header {
-  background-color: #1e3a8a;
-  color: white;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background-color: #1e3a8a; /* Azul oscuro */
+  color: white; /* Texto blanco */
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  display: flex; /* Flexbox para organizar título y nav */
+  justify-content: space-between; /* Título a la izquierda, nav a la derecha */
+  align-items: center; /* Centra verticalmente */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Sombra inferior */
 }
 
+/* Título dentro del header */
 header h1 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0;
+  font-size: 1.2rem; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  margin: 0; /* Quitamos margen por defecto */
 }
 
-/* Navegación */
+/* Navegación (contenedor de botones) */
 nav {
-  display: flex;
-  gap: 0.5rem;
+  display: flex; /* Botones en fila */
+  gap: 0.5rem; /* Espacio entre botones */
 }
 
+/* Estilos de los botones de navegación */
 nav button {
-  background-color: #1e40af;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  border-radius: 6px;
-  transition: background 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  background-color: #1e40af; /* Azul medio */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  cursor: pointer; /* Cursor tipo mano */
+  font-size: 0.9rem; /* Tamaño de texto */
+  border-radius: 6px; /* Bordes redondeados */
+  transition: background 0.3s; /* Animación suave al hover */
+  display: flex; /* Ícono y texto en fila */
+  align-items: center; /* Centra ícono y texto verticalmente */
+  gap: 6px; /* Espacio entre ícono y texto */
 }
 
+/* Efecto hover en botones */
 nav button:hover {
-  background-color: #2563eb;
+  background-color: #2563eb; /* Azul más claro al pasar el mouse */
 }
 
+/* Botón activo (el tab seleccionado) */
 nav button.active {
-  background-color: #0f172a;
+  background-color: #0f172a; /* Azul muy oscuro */
 }
 
+/* Tamaño de los íconos */
 .icon {
   width: 18px;
   height: 18px;
@@ -67,94 +74,97 @@ nav button.active {
 
 /* Contenido principal */
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
+  flex: 1; /* Ocupa todo el espacio restante */
+  display: flex; /* Flexbox para centrar */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-start; /* Alinea arriba verticalmente */
+  padding: 2rem; /* Espaciado interno */
 }
 
+/* Contenedor de cada sección (Herramientas, Vecinos, Préstamos) */
 .section-container {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 2rem;
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
-  margin: 0 auto;
+  background: white; /* Fondo blanco */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave */
+  padding: 2rem; /* Espaciado interno */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 800px; /* Máximo ancho */
+  text-align: center; /* Centra texto */
+  margin: 0 auto; /* Centra horizontalmente */
 }
 
-/* Títulos */
+/* Títulos de cada sección */
 .section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem; /* Tamaño grande */
+  font-weight: bold; /* Negrita */
+  margin-bottom: 1.5rem; /* Espacio debajo */
 }
 
-.section-title.blue { color: #1e3a8a; }
-.section-title.green { color: #047857; }
-.section-title.purple { color: #6d28d9; }
+/* Colores específicos para cada sección */
+.section-title.blue { color: #1e3a8a; }   /* Azul para Herramientas */
+.section-title.green { color: #047857; }  /* Verde para Vecinos */
+.section-title.purple { color: #6d28d9; } /* Morado para Préstamos */
 
-/* Bloques internos */
+/* Bloques internos (formularios y listas) */
 .block {
-  background: #f9fafb;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: #f9fafb; /* Fondo gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 1rem; /* Espaciado interno */
+  margin-bottom: 1.5rem; /* Espacio entre bloques */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Sombra ligera */
 }
 
-/* 📱 Responsive */
+/* 📱 Responsive para tablets */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Header se apila */
+    align-items: flex-start; /* Alinea a la izquierda */
   }
 
   nav {
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    margin-top: 0.5rem;
+    flex-wrap: wrap; /* Botones se acomodan en varias filas */
+    width: 100%; /* Ocupan todo el ancho */
+    justify-content: center; /* Centra los botones */
+    margin-top: 0.5rem; /* Espacio arriba */
   }
 
   nav button {
-    flex: 1 1 auto;
-    text-align: center;
-    font-size: 0.8rem;
-    padding: 0.5rem;
+    flex: 1 1 auto; /* Botones se expanden */
+    text-align: center; /* Texto centrado */
+    font-size: 0.8rem; /* Texto más pequeño */
+    padding: 0.5rem; /* Menos padding */
   }
 
   .section-container {
-    padding: 1rem;
+    padding: 1rem; /* Menos espacio interno */
   }
 
   .section-title {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Título más pequeño */
   }
 }
 
+/* 📱 Responsive para celulares */
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1rem;
+    font-size: 1rem; /* Título más pequeño */
   }
 
   nav {
-    flex-direction: column;
-    gap: 0.3rem;
+    flex-direction: column; /* Botones en columna */
+    gap: 0.3rem; /* Menos espacio entre botones */
   }
 
   nav button {
-    width: 100%;
-    font-size: 0.8rem;
+    width: 100%; /* Botones ocupan todo el ancho */
+    font-size: 0.8rem; /* Texto más pequeño */
   }
 
   .section-container {
-    padding: 0.8rem;
+    padding: 0.8rem; /* Menos espacio interno */
   }
 
   .section-title {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Título más pequeño */
   }
 }
