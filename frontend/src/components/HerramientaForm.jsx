@@ -1,9 +1,8 @@
-// Se importan los hooks y librerías necesarias
 import { useState } from "react"; // Hook de React para manejar estados
 import axios from "axios";        // Librería para hacer peticiones HTTP al backend
 import Mensaje_Alerta from "./Mensaje_Alerta"; // Componente para mostrar mensajes de éxito o error
 
-// Se define el componente HerramientaForm
+// Componente HerramientaForm
 export default function HerramientaForm({ onCreated }) {
   // Estado inicial del formulario
   const [form, setForm] = useState({
@@ -13,10 +12,10 @@ export default function HerramientaForm({ onCreated }) {
     notas: ""
   });
 
-  // Estado para manejar mensajes de alerta (éxito o error)
+  // Mensajes de alerta (exito o error)
   const [message, setMessage] = useState({ type: "", text: "" });
 
-  // Función que se ejecuta cada vez que el usuario escribe en un input o selecciona una opción
+  // Función cuando usuario escribe en un input o selecciona una opción
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
     // Se actualiza el estado del formulario dinámicamente
@@ -30,28 +29,28 @@ export default function HerramientaForm({ onCreated }) {
   const handleSubmit = async e => {
     e.preventDefault(); // Evita que la página se recargue
     try {
-      // Enviamos los datos del formulario al backend con axios
+      // Se envian los datos del formulario al backend con axios
       await axios.post(`${import.meta.env.VITE_API_URL}/herramientas`, form);
 
-      // Si la petición fue exitosa, mostramos mensaje de éxito
+      // Mensaje de éxito
       setMessage({ type: "success", text: "Herramienta registrada correctamente ✅" });
 
-      // Limpiamos los campos del formulario
+      // Limpieza de los campos del formulario
       setForm({ tipo: "", nombre: "", estado: "", notas: "" });
 
-      // Si existe la prop onCreated, la ejecutamos (ej. refrescar lista de herramientas)
+      // Si existe la prop onCreated, se ejecuta (refrescar lista de herramientas)
       if (onCreated) onCreated();
     } catch (error) {
-      // Si ocurre un error, mostramos mensaje de error
+      // Mensaje de error
       setMessage({ type: "error", text: "Error al registrar herramienta ❌" });
       console.error(error);
     }
   };
 
-  // Renderizamos el formulario
+  // Renderizado del formulario
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mb-6">
-      {/* Componente que muestra mensajes de éxito o error */}
+      {/* Componente de mensajes de éxito o error */}
       <Mensaje_Alerta type={message.type} text={message.text} />
 
       {/* Campo para el tipo de herramienta */}
@@ -74,8 +73,8 @@ export default function HerramientaForm({ onCreated }) {
         className="border rounded px-3 py-2 w-full"
       />
 
-      {/* Campo para el estado de la herramienta como SELECT */}
-      {/* Ahora el usuario puede elegir entre opciones predefinidas */}
+      {/* Campo para el estado de la herramienta (SELECT) */}
+      {/* El usuario puede elegir entre opciones predefinidas */}
       <select
         name="estado"
         value={form.estado}

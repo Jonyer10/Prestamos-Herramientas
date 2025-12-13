@@ -1,11 +1,11 @@
-// Importamos el Pool de la librería pg (PostgreSQL para Node.js)
+// Pool de la librería pg (PostgreSQL para Node.js)
 const { Pool } = require('pg');
 
-// Importamos dotenv para poder leer las variables de entorno desde el archivo .env
+// dotenv para poder leer las variables de entorno desde el archivo .env
 require('dotenv').config();
 
-// Creamos una nueva instancia de Pool (conexión a la base de datos)
-// Cada propiedad se obtiene desde las variables de entorno definidas en tu archivo .env
+// Instancia de Pool (conexión a la base de datos)
+// Cada propiedad se obtiene desde las variables de entorno definidas en .env
 const pool = new Pool({
   host: process.env.PGHOST,       // Dirección del servidor de la base de datos
   port: process.env.PGPORT,       // Puerto de conexión (por defecto PostgreSQL usa 5432)
@@ -14,8 +14,8 @@ const pool = new Pool({
   password: process.env.PGPASSWORD // Contraseña del usuario
 });
 
-// Mensaje en consola para confirmar a qué base de datos se está conectando
+// Mensaje en consola a que base se esta conectando
 console.log('Conectando a la base:', process.env.PGDATABASE);
 
-// Exportamos el pool para poder usarlo en otros archivos (controladores, rutas, etc.)
+// Se exporta para usarlo en otros archivos
 module.exports = pool;

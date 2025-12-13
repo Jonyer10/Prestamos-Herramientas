@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function PrestamoForm({ onCreated }) {
-  // Estados para guardar las opciones y los valores seleccionados
+  // Estado para guardar las opciones y los valores
   const [herramientas, setHerramientas] = useState([]);
   const [vecinos, setVecinos] = useState([]);
   const [herramientaId, setHerramientaId] = useState('');
   const [vecinoId, setVecinoId] = useState('');
   const [observaciones, setObservaciones] = useState('');
 
-  // Cargar herramientas y vecinos al montar el componente
+  // Se cargan las herramientas y vecinos al montar el componente
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/herramientas`)
       .then(res => setHerramientas(res.data))
@@ -25,7 +25,7 @@ function PrestamoForm({ onCreated }) {
     e.preventDefault();
 
     try {
-      // 👇 Aquí mandamos los campos con camelCase como espera el backend ajustado
+      // Se envian los campos con camelCase como espera el backend ajustado
       const payload = {
         vecinoId,
         herramientaId,
@@ -36,12 +36,12 @@ function PrestamoForm({ onCreated }) {
 
       await axios.post(`${import.meta.env.VITE_API_URL}/prestamos`, payload);
 
-      // Si todo sale bien, limpiamos el formulario
+      // limpieza del formulario
       setHerramientaId('');
       setVecinoId('');
       setObservaciones('');
 
-      // Llamamos la función para refrescar la lista
+      // Refrescar la lista
       if (onCreated) onCreated();
     } catch (error) {
       console.error('Error al crear préstamo:', error);

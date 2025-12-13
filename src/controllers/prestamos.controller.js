@@ -1,7 +1,7 @@
-// Importamos la conexión a la base de datos desde el archivo db.js
+// Conexión a la base de datos
 const pool = require('../db');
 
-// ✅ Listar todos los préstamos con JOIN
+// Lista todos los préstamos con JOIN
 const getAll = async (req, res) => {
   try {
     const { rows } = await pool.query(`
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
   }
 };
 
-// ✅ Obtener préstamo por ID
+// Obtener préstamo por ID
 const getById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -33,18 +33,18 @@ const getById = async (req, res) => {
   }
 };
 
-// ✅ Crear préstamo (ajustado para frontend camelCase)
+// Crear préstamo 
 const create = async (req, res) => {
   try {
-    // Capturamos los datos como los manda el frontend
+    // Se captura los datos como los manda el frontend
     const { vecinoId, herramientaId, observaciones } = req.body;
 
-    // Validamos que los campos obligatorios existan
+    // Existencia de los campos obligatorios
     if (!vecinoId || !herramientaId) {
       return res.status(400).json({ error: 'Faltan campos obligatorios' });
     }
 
-    // Insertamos el préstamo con fecha actual y sin fecha_devolucion
+    // Préstamo con fecha actual
     const { rows } = await pool.query(
       `INSERT INTO prestamos (vecino_id, herramienta_id, fecha_prestamo, observaciones)
        VALUES ($1, $2, CURRENT_DATE, $3) RETURNING *`,
@@ -58,7 +58,7 @@ const create = async (req, res) => {
   }
 };
 
-// ✅ Actualizar préstamo (mantiene snake_case para uso interno o admin)
+// Actualizar préstamo 
 const update = async (req, res) => {
   const { id } = req.params;
   const { vecino_id, herramienta_id, fecha_prestamo, fecha_devolucion, observaciones } = req.body;
@@ -75,7 +75,7 @@ const update = async (req, res) => {
   }
 };
 
-// ✅ Marcar préstamo como devuelto
+// Marcar préstamo como devuelto
 const devolver = async (req, res) => {
   const { id } = req.params;
   try {
@@ -98,7 +98,7 @@ const devolver = async (req, res) => {
   }
 };
 
-// ✅ Eliminar préstamo
+// Eliminar préstamo
 const remove = async (req, res) => {
   const { id } = req.params;
   try {
@@ -110,11 +110,11 @@ const remove = async (req, res) => {
   }
 };
 
-// Exportamos todas las funciones para usarlas en las rutas
+// Se exportan las funciones para usarlas en las rutas
 module.exports = {
   getAll,
   getById,
-  create,     // 👈 ya ajustado para frontend camelCase
+  create,     
   update,
   devolver,
   remove

@@ -1,9 +1,5 @@
-// Importamos useState de React para manejar el estado local
 import { useState } from 'react';
-// Importamos los estilos globales
 import './App.css';
-
-// Importamos los componentes que conforman cada sección
 import HerramientasList from './components/HerramientasList';
 import HerramientaForm from './components/HerramientaForm';
 import PrestamosList from './components/PrestamosList';
@@ -11,7 +7,7 @@ import VecinoForm from './components/VecinoForm';
 import PrestamoForm from './components/PrestamoForm';
 import VecinosList from './components/VecinosList';
 
-// Importamos íconos de Heroicons para darle estilo a los botones de navegación
+// Iconos de Heroicons 
 import {
   WrenchScrewdriverIcon,   // Ícono para la sección de Herramientas
   UserGroupIcon,           // Ícono para la sección de Vecinos
@@ -19,7 +15,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 function App() {
-  // Estado que controla qué pestaña está activa (herramientas, vecinos o préstamos)
+  // Estado que controla qué pestaña está activa
   const [tab, setTab] = useState('herramientas');
 
   // Log para verificar que la URL de la API se está cargando desde el archivo .env
@@ -27,7 +23,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Encabezado con título y barra de navegación */}
+      {/* título */}
       <header>
         <h1>Banco de Herramientas</h1>
         <nav>
@@ -60,7 +56,7 @@ function App() {
         </nav>
       </header>
 
-      {/* Contenido principal que cambia según la pestaña seleccionada */}
+
       <main>
         {/* Sección de Herramientas */}
         {tab === 'herramientas' && (
@@ -110,6 +106,4 @@ function App() {
     </div>
   );
 }
-
-// Exportamos el componente principal para que pueda ser usado en index.jsx
 export default App;

@@ -1,11 +1,10 @@
-// Importamos los hooks y librerías necesarias
 import { useState } from "react"; // useState para manejar estados internos del componente
 import axios from "axios";        // Librería para hacer peticiones HTTP al backend
 import Mensaje_Alerta from "./Mensaje_Alerta"; // Componente para mostrar mensajes de éxito o error
 
-// Definimos el componente VecinoForm
+// componente VecinoForm
 export default function VecinoForm() {
-  // Estado inicial del formulario: cada campo empieza vacío
+  // Estado inicial del formulario
   const [form, setForm] = useState({
     nombre_completo: "",
     documento: "",
@@ -19,30 +18,30 @@ export default function VecinoForm() {
   // Función que se ejecuta cada vez que el usuario escribe en un input
   const handleChange = e => {
     const { name, value } = e.target;
-    // Actualizamos el estado del formulario dinámicamente usando el atributo "name" del input
+    // Actualizacion del formulario dinamicamente usando el atributo "name" del input
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  // Función que se ejecuta al enviar el formulario
+  // Envio del formulario
   const handleSubmit = async e => {
     e.preventDefault(); // Evita que la página se recargue
     try {
-      // Enviamos los datos del formulario al backend con axios
+      // Envio de los datos del formulario al backend con axios
       await axios.post(`${import.meta.env.VITE_API_URL}/vecinos`, form);
 
-      // Si la petición fue exitosa, mostramos mensaje de éxito
+      // Mensaje de éxito
       setMessage({ type: "success", text: "Vecino registrado correctamente ✅" });
 
-      // Limpiamos los campos del formulario
+      // Limpieza de los campos del formulario
       setForm({ nombre_completo: "", documento: "", telefono: "", email: "" });
     } catch (error) {
-      // Si ocurre un error, mostramos mensaje de error
+      // Mensaje de error
       setMessage({ type: "error", text: "Error al registrar vecino ❌" });
       console.error(error);
     }
   };
 
-  // Renderizamos el formulario
+  // Renderizado del formulario
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mb-6">
       {/* Componente que muestra mensajes de éxito o error */}
