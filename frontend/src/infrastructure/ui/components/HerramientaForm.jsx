@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHerramientas } from '../../../application/hooks/useHerramientas';
+import { useHerramientas } from "../../../application/hooks/useHerramientas";
 import Mensaje_Alerta from "./Mensaje_Alerta";
 
 // Componente HerramientaForm con soporte para imágenes y arquitectura hexagonal
@@ -12,7 +12,7 @@ export default function HerramientaForm() {
     nombre: "",
     estado: "",
     notas: "",
-    disponible: true
+    disponible: true,
   });
 
   const [imagen, setImagen] = useState(null);
@@ -21,16 +21,16 @@ export default function HerramientaForm() {
   const [loading, setLoading] = useState(false);
 
   // Maneja cambios en los inputs
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setForm(prev => ({
+    setForm((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   // Maneja la selección de imagen
-  const handleImagenChange = e => {
+  const handleImagenChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setImagen(file);
@@ -44,7 +44,7 @@ export default function HerramientaForm() {
   };
 
   // Envía el formulario
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage({ type: "", text: "" });
@@ -53,23 +53,34 @@ export default function HerramientaForm() {
       // Crear objeto con los datos incluyendo la imagen
       const herramientaData = {
         ...form,
-        imagen: imagen
+        imagen: imagen,
       };
 
       await crearHerramienta(herramientaData);
 
-      setMessage({ type: "success", text: "✅ Herramienta registrada correctamente" });
-      
+      setMessage({
+        type: "success",
+        text: "✅ Herramienta registrada correctamente",
+      });
+
       // Limpiar formulario
-      setForm({ tipo: "", nombre: "", estado: "", notas: "", disponible: true });
+      setForm({
+        tipo: "",
+        nombre: "",
+        estado: "",
+        notas: "",
+        disponible: true,
+      });
       setImagen(null);
       setImagenPreview(null);
       // Limpiar input file
       const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) fileInput.value = '';
-      
+      if (fileInput) fileInput.value = "";
     } catch (error) {
-      setMessage({ type: "error", text: `❌ ${error.message || 'Error al registrar herramienta'}` });
+      setMessage({
+        type: "error",
+        text: `❌ ${error.message || "Error al registrar herramienta"}`,
+      });
       console.error(error);
     } finally {
       setLoading(false);
@@ -124,27 +135,23 @@ export default function HerramientaForm() {
       <div className="form-group">
         <label className="form-label">Imagen de la Herramienta</label>
         <div className="file-input-wrapper">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImagenChange}
-          />
-          <div className={`file-input-label ${imagen ? 'has-file' : ''}`}>
+          <input type="file" accept="image/*" onChange={handleImagenChange} />
+          <div className={`file-input-label ${imagen ? "has-file" : ""}`}>
             <span>📷</span>
-            <span>{imagen ? imagen.name : 'Seleccionar imagen'}</span>
+            <span>{imagen ? imagen.name : "Seleccionar imagen"}</span>
           </div>
         </div>
         {imagenPreview && (
-          <div style={{ marginTop: 'var(--spacing-md)' }}>
+          <div style={{ marginTop: "var(--spacing-md)" }}>
             <img
               src={imagenPreview}
               alt="Preview"
-              style={{ 
-                width: '100%', 
-                maxWidth: '300px', 
-                height: 'auto', 
-                borderRadius: 'var(--border-radius-md)',
-                boxShadow: 'var(--shadow-md)'
+              style={{
+                width: "100%",
+                maxWidth: "300px",
+                height: "auto",
+                borderRadius: "var(--border-radius-md)",
+                boxShadow: "var(--shadow-md)",
               }}
             />
           </div>
@@ -163,11 +170,11 @@ export default function HerramientaForm() {
         />
       </div>
 
-      <button 
-        type="submit" 
-        className="btn btn-primary" 
+      <button
+        type="submit"
+        className="btn btn-primary"
         disabled={loading}
-        style={{ width: '100%' }}
+        style={{ width: "100%" }}
       >
         {loading ? (
           <>

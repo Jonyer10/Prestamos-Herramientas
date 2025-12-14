@@ -5,6 +5,7 @@ Sistema completo de gestión de préstamos de herramientas con **Arquitectura He
 ## 🏗️ Arquitectura Implementada
 
 ### Backend (Node.js + Express + PostgreSQL)
+
 ```
 backend/
 ├── src/
@@ -38,6 +39,7 @@ backend/
 ```
 
 ### Frontend (React + Vite)
+
 ```
 frontend/
 ├── src/
@@ -69,12 +71,14 @@ frontend/
 ## ✨ Nuevas Funcionalidades
 
 ### 1. Soporte para Imágenes de Herramientas
+
 - ✅ Subida de imágenes al crear/editar herramientas
 - ✅ Preview de imágenes antes de subir
 - ✅ Almacenamiento en servidor
 - ✅ Visualización en cards de herramientas
 
 ### 2. Arquitectura Hexagonal
+
 - ✅ Separación clara de capas (Dominio, Aplicación, Infraestructura)
 - ✅ Puertos e interfaces para independencia de infraestructura
 - ✅ Servicios de dominio con validaciones robustas
@@ -82,6 +86,7 @@ frontend/
 - ✅ Custom Hooks para lógica de aplicación
 
 ### 3. Diseño Profesional
+
 - ✅ Sistema de diseño completo con variables CSS
 - ✅ Tema profesional adaptado a banco de herramientas
 - ✅ Componentes reutilizables (buttons, cards, forms, badges, alerts)
@@ -94,17 +99,20 @@ frontend/
 ### Backend
 
 1. Instalar dependencias:
+
 ```bash
 cd backend
 npm install express cors pg dotenv multer
 ```
 
 2. Ejecutar migración SQL:
+
 ```bash
 psql -U tu_usuario -d tu_base_de_datos -f migrations/add_imagen_herramientas.sql
 ```
 
 3. Configurar `.env`:
+
 ```env
 PORT=4000
 PGHOST=localhost
@@ -115,6 +123,7 @@ PGPASSWORD=tu_contraseña
 ```
 
 4. Iniciar servidor:
+
 ```bash
 npm start
 # o para desarrollo:
@@ -124,17 +133,20 @@ node src/server.js
 ### Frontend
 
 1. Instalar dependencias:
+
 ```bash
 cd frontend
 npm install
 ```
 
 2. Configurar `.env`:
+
 ```env
 VITE_API_URL=http://localhost:4000
 ```
 
 3. Iniciar aplicación:
+
 ```bash
 npm run dev
 ```
@@ -142,6 +154,7 @@ npm run dev
 ## 📋 Mejoras Implementadas
 
 ### Backend:
+
 1. ✅ **Consistencia de nombres**: CamelCase en toda la API
 2. ✅ **Validaciones robustas**: En capa de dominio
 3. ✅ **Manejo de errores mejorado**: Mensajes descriptivos
@@ -149,6 +162,7 @@ npm run dev
 5. ✅ **Soporte de imágenes**: Multer configurado con validaciones
 
 ### Frontend:
+
 1. ✅ **Eliminación de window.location.reload()**: Uso de hooks para actualizar estado
 2. ✅ **Centralización de API**: Instancia de Axios configurada
 3. ✅ **Custom Hooks**: useHerramientas, useVecinos, usePrestamos
@@ -158,6 +172,7 @@ npm run dev
 ## 🎨 Sistema de Diseño
 
 ### Colores Principales:
+
 - **Primary**: `#FF6B35` (Naranja - Herramientas)
 - **Secondary**: `#004E89` (Azul - Confianza)
 - **Accent**: `#F7931E` (Amarillo construcción)
@@ -166,6 +181,7 @@ npm run dev
 - **Error**: `#E74C3C`
 
 ### Componentes Disponibles:
+
 - Buttons (primary, secondary, success, danger, warning, outline)
 - Cards (con header, body, footer)
 - Forms (inputs, selects, textareas, file inputs)
@@ -177,6 +193,7 @@ npm run dev
 ## 📁 Estructura de Datos
 
 ### Herramienta:
+
 ```javascript
 {
   id: number,
@@ -190,6 +207,7 @@ npm run dev
 ```
 
 ### Vecino:
+
 ```javascript
 {
   id: number,
@@ -201,6 +219,7 @@ npm run dev
 ```
 
 ### Préstamo:
+
 ```javascript
 {
   id: number,
@@ -232,6 +251,7 @@ Ver archivo: `backend/migrations/add_imagen_herramientas.sql`
 ## 👨‍💻 Desarrollo
 
 El proyecto ahora sigue principios SOLID y Clean Architecture:
+
 - **S**ingle Responsibility: Cada clase tiene una única responsabilidad
 - **O**pen/Closed: Abierto para extensión, cerrado para modificación
 - **L**iskov Substitution: Los repositorios son intercambiables
