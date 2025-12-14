@@ -1,0 +1,28 @@
+{
+  "name": "banco-herramientas-backend",
+  "version": "2.0.0",
+  "description": "Backend con Arquitectura Hexagonal para sistema de préstamo de herramientas",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "herramientas",
+    "prestamos",
+    "hexagonal-architecture",
+    "clean-architecture"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,307 @@
+/* ============================================
+   BANCO DE HERRAMIENTAS - Estilos Principales
+   Sistema de Diseño Profesional
+   ============================================ */
+
+/* Importar Variables y Base */
+@import './variables.css';
+
+/* Importar Componentes */
+@import './components.css';
+
+/* Importar Layout */
+@import './layout.css';
+
+/* ============================================
+   ESTILOS ESPECÍFICOS DE HERRAMIENTAS
+   ============================================ */
+
+/* Lista de Herramientas */
+.herramientas-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.herramienta-card {
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.herramienta-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--primary-light);
+}
+
+.herramienta-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+}
+
+.herramienta-imagen.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--text-light);
+}
+
+.herramienta-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.herramienta-nombre {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.herramienta-tipo {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.herramienta-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.herramienta-estado.nuevo {
+  background-color: var(--success-light);
+  color: #1E7E34;
+}
+
+.herramienta-estado.bueno {
+  background-color: var(--info-color);
+  color: var(--text-white);
+}
+
+.herramienta-estado.regular {
+  background-color: var(--warning-light);
+  color: #856404;
+}
+
+.herramienta-estado.malo {
+  background-color: var(--error-light);
+  color: #721C24;
+}
+
+.herramienta-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ============================================
+   ESTILOS ESPECÍFICOS DE PRÉSTAMOS
+   ============================================ */
+
+.prestamos-table-container {
+  overflow-x: auto;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.prestamos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prestamos-table thead {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--text-white);
+}
+
+.prestamos-table th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prestamos-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.prestamos-table tbody tr {
+  transition: all var(--transition-fast);
+}
+
+.prestamos-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+.prestamo-activo {
+  background-color: rgba(46, 204, 113, 0.05);
+}
+
+.prestamo-devuelto {
+  background-color: rgba(127, 140, 141, 0.05);
+  opacity: 0.8;
+}
+
+/* ============================================
+   ESTILOS ESPECÍFICOS DE VECINOS
+   ============================================ */
+
+.vecinos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.vecino-card {
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border-left: 4px solid var(--success-color);
+}
+
+.vecino-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+}
+
+.vecino-nombre {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.vecino-documento {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.vecino-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   FILE INPUT CUSTOM
+   ============================================ */
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.file-input-label:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(255, 107, 53, 0.05);
+  color: var(--primary-color);
+}
+
+.file-input-label.has-file {
+  border-color: var(--success-color);
+  background-color: rgba(46, 204, 113, 0.05);
+  color: var(--success-color);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  gap: var(--spacing-md);
+}
+
+.loading-text {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-description {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-lg);
+}

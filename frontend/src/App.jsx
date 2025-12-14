@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './App.css';
-import HerramientasList from './components/HerramientasList';
-import HerramientaForm from './components/HerramientaForm';
-import PrestamosList from './components/PrestamosList';
-import VecinoForm from './components/VecinoForm';
-import PrestamoForm from './components/PrestamoForm';
-import VecinosList from './components/VecinosList';
+import './styles/main.css';
+import HerramientasList from './infrastructure/ui/components/HerramientasList';
+import HerramientaForm from './infrastructure/ui/components/HerramientaForm';
+import PrestamosList from './infrastructure/ui/components/PrestamosList';
+import VecinoForm from './infrastructure/ui/components/VecinoForm';
+import PrestamoForm from './infrastructure/ui/components/PrestamoForm';
+import VecinosList from './infrastructure/ui/components/VecinosList';
 
 // Iconos de Heroicons 
 import {
@@ -64,7 +64,7 @@ function App() {
             <h2 className="section-title blue">Gestión de Herramientas</h2>
             <div className="block">
               {/* Formulario para registrar nuevas herramientas */}
-              <HerramientaForm onCreated={() => window.location.reload()} />
+              <HerramientaForm />
             </div>
             <div className="block">
               {/* Lista de herramientas registradas */}
@@ -79,7 +79,7 @@ function App() {
             <h2 className="section-title green">Registro de Vecinos</h2>
             <div className="block">
               {/* Formulario para registrar nuevos vecinos */}
-              <VecinoForm onCreated={() => window.location.reload()} />
+              <VecinoForm />
             </div>
             <div className="block">
               {/* Lista de vecinos registrados */}
@@ -94,7 +94,7 @@ function App() {
             <h2 className="section-title purple">Gestión de Préstamos</h2>
             <div className="block">
               {/* Formulario para crear un nuevo préstamo */}
-              <PrestamoForm onCreated={() => window.location.reload()} />
+              <PrestamoForm />
             </div>
             <div className="block">
               {/* Lista de préstamos registrados */}
